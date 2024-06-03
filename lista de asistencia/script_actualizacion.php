@@ -7,9 +7,7 @@
 
 
 <?php
-// Configuración de conexión a la base de datos local
 
-// Conexión a la base de datos local
 $local_host = 'localhost';
 $local_username = 'root';
 $local_password = '';
@@ -35,20 +33,18 @@ if ($remote_conn->connect_error) {
 } else {
     echo "Conexión a la base de datos en la nube exitosa.<br>";
 }
-
-// Consulta para recuperar datos de la base de datos local
 $local_query = "SELECT * FROM empleados";
 $result = $local_conn->query($local_query);
 
 if ($result->num_rows > 0) {
-    // Insertar datos en la base de datos en la nube
+    
     while ($row = $result->fetch_assoc()) {
         $num_empleado = $row['num_empleado'];
         $departamento = $row['departamento'];
         $nombre = $row['nombre'];
         $status_empleado = $row['status_empleado'];
 
-        // Consulta para insertar o actualizar datos en la base de datos en la nube
+
         $remote_query = "INSERT INTO empleados (num_empleado, departamento, nombre, status_empleado)
                          VALUES (?, ?, ?, ?)
                          ON DUPLICATE KEY UPDATE 
