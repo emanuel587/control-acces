@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Flujo</title>
+    <style>
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .step, .decision, .start-end {
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+        }
+        .step {
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        .decision {
+            border: 1px solid #000;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .start-end {
+            border: 1px solid #000;
+            border-radius: 50px;
+        }
+        .arrow {
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #000;
+            margin: -10px 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .horizontal {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="flowchart">
+        <div class="start-end">Inicio (A)</div>
+        <div class="arrow"></div>
+        <div class="step">Conectar a la base de datos (B)</div>
+        <div class="arrow"></div>
+        <div class="decision">Conexión exitosa? (C)</div>
+        <div class="container">
+            <div class="horizontal">
+                <div class="vertical">
+                    <div class="step">Conexión fallida</div>
+                    <div class="arrow"></div>
+                    <div class="step">Mostrar mensaje de error y terminar</div>
+                </div>
+                <div class="vertical">
+                    <div class="arrow"></div>
+                    <div class="decision">Archivo subido correctamente? (D)</div>
+                    <div class="container">
+                        <div class="horizontal">
+                            <div class="vertical">
+                                <div class="step">No</div>
+                                <div class="arrow"></div>
+                                <div class="step">Mostrar mensaje de error y terminar</div>
+                            </div>
+                            <div class="vertical">
+                                <div class="step">Sí</div>
+                                <div class="arrow"></div>
+                                <div class="step">Obtener ruta y extensión del archivo (F)</div>
+                                <div class="arrow"></div>
+                                <div class="decision">Extensión válida? (G)</div>
+                                <div class="container">
+                                    <div class="horizontal">
+                                        <div class="vertical">
+                                            <div class="step">No</div>
+                                            <div class="arrow"></div>
+                                            <div class="step">Mostrar mensaje de error y terminar</div>
+                                        </div>
+                                        <div class="vertical">
+                                            <div class="step">Sí</div>
+                                            <div class="arrow"></div>
+                                            <div class="step">Leer archivo Excel (I)</div>
+                                            <div class="arrow"></div>
+                                            <div class="step">Obtener hoja activa y número de filas (J)</div>
+                                            <div class="arrow"></div>
+                                            <div class="step">Iniciar transacción (K)</div>
+                                            <div class="arrow"></div>
+                                            <div class="step">Recorrer filas en bloques (L)</div>
+                                            <div class="arrow"></div>
+                                            <div class="decision">Número de empleado vacío y último válido disponible? (M)</div>
+                                            <div class="container">
+                                                <div class="horizontal">
+                                                    <div class="vertical">
+                                                        <div class="step">Sí</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="step">Usar último número de empleado y nombre (N)</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="decision">Datos válidos? (P)</div>
+                                                        <div class="container">
+                                                            <div class="horizontal">
+                                                                <div class="vertical">
+                                                                    <div class="step">Sí</div>
+                                                                    <div class="arrow"></div>
+                                                                    <div class="step">Insertar/Actualizar empleado (Q)</div>
+                                                                    <div class="arrow"></div>
+                                                                    <div class="decision">Error? (R)</div>
+                                                                    <div class="container">
+                                                                        <div class="horizontal">
+                                                                            <div class="vertical">
+                                                                                <div class="step">Sí</div>
+                                                                                <div class="arrow"></div>
+                                                                                <div class="step">Mostrar mensaje de error y realizar rollback</div>
+                                                                            </div>
+                                                                            <div class="vertical">
+                                                                                <div class="step">No</div>
+                                                                                <div class="arrow"></div>
+                                                                                <div class="decision">Asistencia ya registrada? (S)</div>
+                                                                                <div class="container">
+                                                                                    <div class="horizontal">
+                                                                                        <div class="vertical">
+                                                                                            <div class="step">Sí</div>
+                                                                                            <div class="arrow"></div>
+                                                                                            <div class="step">Mostrar mensaje de fila omitida</div>
+                                                                                        </div>
+                                                                                        <div class="vertical">
+                                                                                            <div class="step">No</div>
+                                                                                            <div class="arrow"></div>
+                                                                                            <div class="step">Determinar estado de asistencia e insertar</div>
+                                                                                            <div class="arrow"></div>
+                                                                                            <div class="decision">Error? (R)</div>
+                                                                                            <div class="container">
+                                                                                                <div class="horizontal">
+                                                                                                    <div class="vertical">
+                                                                                                        <div class="step">Sí</div>
+                                                                                                        <div class="arrow"></div>
+                                                                                                        <div class="step">Mostrar mensaje de error y realizar rollback</div>
+                                                                                                    </div>
+                                                                                                    <div class="vertical">
+                                                                                                        <div class="step">No</div>
+                                                                                                        <div class="arrow"></div>
+                                                                                                        <div class="step">Continuar</div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="vertical">
+                                                                    <div class="step">No</div>
+                                                                    <div class="arrow"></div>
+                                                                    <div class="step">Mostrar mensaje de error y realizar rollback</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vertical">
+                                                        <div class="step">No</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="step">Mostrar mensaje de error y realizar rollback</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="decision">Todas las filas procesadas? (L)</div>
+                                            <div class="container">
+                                                <div class="horizontal">
+                                                    <div class="vertical">
+                                                        <div class="step">Sí</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="step">Commit transacción (W)</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="step">Mostrar mensaje de éxito (X)</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="step">Cerrar archivo Excel (Y)</div>
+                                                        <div class="arrow"></div>
+                                                        <div class="start-end">Terminar (Z)</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

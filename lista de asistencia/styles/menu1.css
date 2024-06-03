@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	}
+	body{
+		padding-top: 85px; /* Ajuste para el header fijo */
+		
+	}
+
+	.capa{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: rgba(255, 255, 255, 0.6);
+		z-index: -1;
+		top: 0;left: 0;
+	}
+	
+	.header{
+		width: 100%;
+		height: 85px;
+		position: fixed;
+		top: 0;left: 0;
+        background-color: rgb(255, 129, 129);
+	}
+	.container{
+		width: 90%;
+		max-width: 1200px;
+		margin: auto;
+	}
+	.container .btn-menu, .logo{
+		float: left;
+		line-height:90px;
+		margin-left: -4.5rem;
+		font-size: 12px;
+		color: #fff;
+	}
+	.container .btn-menu label{
+		color: #fff;
+		font-size: 25px;
+		cursor: pointer;
+        margin-right: 111px;
+	}
+	
+	
+	.container .menu{
+		float: right;
+		
+	}
+		
+		
+    .mi-imagen {
+        width: 100px;
+        height: auto;
+     
+  
+      }
+      
+    
+      
+	.container .menu a{
+		display: inline-block;
+		padding: 15px;
+		line-height: normal;
+		text-decoration: none;
+		color: #fff;
+		transition: all 0.3s ease;
+		border-bottom: 2px solid transparent;
+		font-size: 15px;
+		margin-right: 5px;
+	}
+	.container .menu a:hover{
+		border-bottom: 2px solid #c7c7c7;
+		padding-bottom: 5px;
+	}
+
+	#btn-menu{
+		display: none;
+	
+        
+	}
+	.container-menu{
+		position: absolute;
+		background: rgba(0,0,0,0.5);
+		width: 100%;
+		height: 100vh;
+		top: 0;left: 0;
+		transition: all 500ms ease;
+		opacity: 0;
+		visibility: hidden;
+        
+	}
+	#btn-menu:checked ~ .container-menu{
+		opacity: 1;
+		visibility: visible;
+	}
+	.cont-menu{
+		width: 100%;
+		max-width: 250px;
+		background: #020202e3;
+		height: 100vh;
+		position: relative;
+		transition: all 500ms ease;
+		transform: translateX(-100%);
+		overflow-y: auto; /* Permitir scroll en el menú */
+        
+	}
+	#btn-menu:checked ~ .container-menu .cont-menu{
+		transform: translateX(0%);
+	}
+	.cont-menu nav{
+		transform: translateY(15%);
+	}
+	.cont-menu nav a{
+		display: block;
+		text-decoration: none;
+		padding: 20px;
+		color: #e7dddd;
+		border-left: 5px solid transparent;
+		transition: all 400ms ease;
+        font-size: 18px;
+        padding: 30px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+	}
+	.cont-menu nav a:hover{
+		border-left: 5px solid #000000;
+		background: #f33838;
+	}
+	.cont-menu label{
+		position: absolute;
+		right: 5px;
+		top: 0px;
+		color: #f5b4b4;
+		cursor: pointer;
+		font-size: 18px;
+	}
+	
+.welcome-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('tu-imagen-de-fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #000000;
+  text-align: center;
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.welcome-section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+h6{
+    color: #e2dcdc;
+font-size: 20px;
+margin-top: 38px;
+text-align: right;
+margin-right: 1105px;
+
+ 
+}
+h4{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 98px;
+
+ 
+}

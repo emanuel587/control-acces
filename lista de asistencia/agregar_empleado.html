@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de alta</title>
+    <link rel="stylesheet" href="styles/menu1.css">
+    <link rel="stylesheet" href="styles/agregar_empleado.css">
+</head>
+
+<header class="header">
+    <div class="container">
+        <div class="btn-menu">
+            
+            <label for="btn-menu">☰ Menu</label>
+            
+        </div>
+        <div class="logos">
+           
+        </div>
+        <nav class="menu">
+            <img src="img/logo-los-angeles-loco.png" alt="Mi Imagen" class="mi-imagen">
+            
+        </nav>
+    </div>
+</header>
+<div class="capa"></div>
+
+
+
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+    <div class="cont-menu">
+        <nav>
+            <h4>Menu</h4>
+            <a href="index.html">
+                <i class="fa-solid fa-pen-to-square"></i> Cargar excel
+            </a>
+            <a href="permisos.html">
+                <i class="fa-solid fa-folder"></i>Pantalla de permisos
+            </a>
+            <a href="vencimiento contrato.php">
+                <i class="fa-regular fa-clipboard"></i> Vencimiento de contratos
+            </a>
+            <a href="agregar_empleado.html">
+                <i class="fa-regular fa-clipboard"></i> Agregar empleado
+            </a>
+        </nav>
+        <label for="btn-menu">✖️</label>
+    </div>
+</div>
+
+<body>
+    
+    <h1>Ingresa el empleado</h1>
+    <form method="POST" action="agregar_empleado.php">
+        <label for="Num_empleado">Número de Empleado:</label>
+        <input type="number" id="Num_empleado" name="Num_empleado" required><br>
+
+        <label for="Nombre">Nombre:</label>
+        <input type="text" id="Nombre" name="Nombre" required><br>
+
+        <label for="Puesto">Puesto:</label>
+        <input type="text" id="Puesto" name="Puesto" required><br>
+
+        <label for="RFC">RFC:</label>
+        <input type="text" id="RFC" name="RFC" required><br>
+
+        <label for="Nombre_Departamento">Nombre del Departamento:</label>
+        <input type="text" id="Nombre_Departamento" name="Nombre_Departamento" required><br>
+
+        <label for="Fecha_ingreso_contrato">Fecha de Ingreso del Contrato:</label>
+        <input type="date" id="Fecha_ingreso_contrato" name="Fecha_ingreso_contrato" required><br>
+
+        <label for="Fecha_vencimiento_contrato">Fecha de Vencimiento del Contrato:</label>
+        <input type="date" id="Fecha_vencimiento_contrato" name="Fecha_vencimiento_contrato" required><br>
+
+        <input type="submit" value="Agregar Empleado">
+    </form>
+
+    
+</body>
+</html>
