@@ -67,7 +67,7 @@ if (isset($_FILES['excelFile']) && $_FILES['excelFile']['error'] == 0) {
                     $stmtCheckAsistencia->close();
 
                     if ($count == 0) {
-                        // Determinar el estado de la asistencia
+                       
                         $asistencia = '';
                         if (!empty($hora_llegada) && !empty($hora_salida)) {
                             $asistencia = 'asistio';
